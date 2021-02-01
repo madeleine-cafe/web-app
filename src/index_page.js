@@ -221,7 +221,7 @@ const HomepageLayout = () => (
               <p>
               Initiative proposée par l'équipe du Madeleine Café, un ensemble d'universitaires voulant renforcer le lien social en période d'enseignement à distance.
               </p>
-              <p>Logiciel Open-Source développé avec ❤️ et données hébergées en 🇫🇷</p>
+              <p>Logiciel <a href="https://github.com/madeleine-cafe">Open-Source</a> développé avec ❤️ et données hébergées en 🇫🇷</p>
             </Grid.Column>
           </Grid.Row>
         </Grid>
