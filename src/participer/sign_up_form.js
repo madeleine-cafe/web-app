@@ -15,6 +15,8 @@ class NameForm extends React.Component {
     this.handleSignup = this.handleSignup.bind(this);
     this.handleToggleInterest = this.handleToggleInterest.bind(this);
 
+    this.state = {signupDone: false}
+
     fetch(API_HOSTNAME + '/allow_listed_email_suffixes')
       .then(async response => {
         const data = await response.json();
