@@ -14,6 +14,8 @@ class NameForm extends React.Component {
     this.handleContinuer = this.handleContinuer.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
     this.handleToggleInterest = this.handleToggleInterest.bind(this);
+    this.handleYearChange = this.handleYearChange.bind(this);
+    this.handleDisciplineChange = this.handleDisciplineChange.bind(this);
 
     this.state = {signupDone: false}
 
@@ -34,6 +36,16 @@ class NameForm extends React.Component {
         this.setState({ errorMessage: error.toString() });
         console.error('There was an error!', error);
       });
+  }
+
+  handleYearChange(event, result) {
+    console.log("Set year to: " + result.value)
+    this.setState({ year: result.value});
+  }
+
+  handleDisciplineChange(event, result) {
+    console.log("Set discipline to: " + result.value)
+    this.setState({ discipline: result.value});
   }
 
   handleEmailChange(event) {
