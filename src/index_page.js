@@ -188,9 +188,8 @@ const HomepageLayout = () => (
             </Header>
             <div>
             
-            <p style={{ fontSize: '1.33em' }}>Le projet <b>Madeleine Café</b> est une initiative personnelle visant à rétablir des moments de convivialité à l'université. Pour recréer les discussions spontanées, autour de la machine à café ou à la pause, nous proposons aux étudiants de prendre quelques minutes pour se connaître et se parler virtuellement.</p> 
-            <p style={{ fontSize: '1.33em' }}>Pour cela, après une inscription validée, l'équipe Madeleine Café envoie un mail aux étudiants afin qu'ils programment leur réunion.</p>
-            <p style={{ fontSize: '1.33em' }}>Les étudiants sont appairés par groupe de deux et un mail les invite à se mettre d'accord sur la date et l'heure de leur madeleine café. Les mails mettent en contact les étudiants sont envoyés le lundi, toutes les deux semaines. Chaque réunion permet de rencontrer une nouvelle personne de sa promotion.</p>
+            <p style={{ fontSize: '1.33em' }}>Madeleine Café est un générateur de moments de convivialité entre étudiants. Ce projet vise à reconstruire les petites discussions autour de la machine à café ou à la pause des cours entre des personnes qui ne se connaissent pas bien en proposant aux étudiants des moments virtuels de convivialité. Sur la base du volontariat, les étudiants peuvent s’inscrire avec leur adresse mail universitaire pour rencontrer quelqu’un de leur promotion et échanger sur différents sujets à l’occasion d’un Madeleine Café. </p> 
+            <p style={{ fontSize: '1.33em' }}>Pour cela, après une inscription validée, les étudiants sont appairés par groupe de deux en fonction de leur filière, niveau d’étude et de leurs centres d’intérêts (s’ils en ont renseigné). Un mail les invite à se mettre d'accord sur la date et l'heure de leur Madeleine Café. Ces mails de mise en contact sont envoyés le lundi, toutes les deux semaines. Chaque réunion permet de rencontrer une nouvelle personne de sa promotion.</p>
 
             </div>
           </Grid.Column>
