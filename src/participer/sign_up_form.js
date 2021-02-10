@@ -140,7 +140,7 @@ class NameForm extends React.Component {
           console.error('There was an error!', error);
         });
     } else {
-      alert("Café Madeleine n'est pas encore disponible pour votre fac. N'hésitez pas à encourager vos enseignants à nous contacter.");
+      alert("Veuillez vérifier que vous avez inscrit votre adresse email universitaire (cela permet d'éviter à des tiers de s'inscrire). Il est également possible que Madeleine Café ne soit pas encore disponible pour votre fac. N'hésitez pas à encourager vos enseignants à nous contacter.");
     }
     event.preventDefault();
   }
