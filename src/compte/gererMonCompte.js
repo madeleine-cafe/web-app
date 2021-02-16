@@ -152,7 +152,10 @@ class GererMonCompteElement extends React.Component {
             <Header as='h3' content={this.state.errorMessage}/>
           }
           {(this.state.accountActivated) &&
-            <Header as='h3' content="Votre compte a bien été activé. À bientôt pour votre premier madeleine café !"/>
+            <div>
+            <Header as='h2' content="Votre compte a bien été activé !"/>
+            <Header as='h3' content="Nous vous enverrons un mail d'ici quelques jours pour programmer votre premier Madeleine Café." />
+            </div>
           }
           {(this.state.accountDeleted) &&
             <Header as='h3' content="Votre compte a bien été supprimé !"/>
