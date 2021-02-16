@@ -18,24 +18,6 @@ class NameForm extends React.Component {
     this.handleDisciplineChange = this.handleDisciplineChange.bind(this);
 
     this.state = {signupDone: false}
-
-    fetch(API_HOSTNAME + '/allow_listed_email_suffixes')
-      .then(async response => {
-        const data = await response.json();
-
-        // check for error response
-        if (!response.ok) {
-          // get error message from body or default to response statusText
-          const error = (data && data.message) || response.statusText;
-          return Promise.reject(error);
-        }
-        //console.log("Allowed subdomains are:" + data)
-        this.setState({ allowedSuffixes: data })
-      })
-      .catch(error => {
-        this.setState({ errorMessage: error.toString() });
-        console.error('There was an error!', error);
-      });
   }
 
   handleYearChange(event, result) {
@@ -107,41 +89,38 @@ class NameForm extends React.Component {
 
   handleContinuer(event) {
     var suffix = this.state.email.substring(this.state.email.lastIndexOf("@") + 1);
-    if (this.state.allowedSuffixes.includes(suffix)) {
-      this.setState({ isValidEmail: true });
-      
-      fetch(API_HOSTNAME + "/signup_options/" + suffix)
-        .then(async response => {
-          const data = await response.json();
+    
+    fetch(API_HOSTNAME + "/signup_options/" + suffix)
+      .then(async response => {
+        const data = await response.json();
 
-          // check for error response
-          if (!response.ok) {
-            // get error message from body or default to response statusText
-            const error = (data && data.message) || response.statusText;
-            console
-            return Promise.reject(error);
-          }
-          this.setState({
-            discipline_options: data.disciplines.map(x => ({ "key": x, "text": x, "value": x })),
-            school_years_options: data.school_years.map(x => ({ "key": x, "text": x, "value": x })),
-            interests_options: data.interests.map(x => ({ "key": x, "text": x, "value": x }))
-          })
+        // check for error response
+        if (!response.ok) {
+          // get error message from body or default to response statusText
+          const error = (data && data.message) || response.statusText;
+          return Promise.reject(error);
+        }
+        this.setState({
+          isValidEmail: true,
+          discipline_options: data.disciplines.map(x => ({ "key": x, "text": x, "value": x })),
+          school_years_options: data.school_years.map(x => ({ "key": x, "text": x, "value": x })),
+          interests_options: data.interests.map(x => ({ "key": x, "text": x, "value": x }))
+        })
 
-          if (this.state.discipline_options.length == 1) {
-            this.setState({discipline:this.state.discipline_options[0].key})
-          }
-          
-          if (this.state.school_years_options.length == 1) {
-            this.setState({year: this.state.school_years_options[0].key})
-          }
-          this.setState({interests: []});
-        }).catch(error => {
-          this.setState({ errorMessage: error.toString() });
-          console.error('There was an error!', error);
-        });
-    } else {
-      alert("Veuillez vérifier que vous avez inscrit votre adresse email universitaire (cela permet d'éviter à des tiers de s'inscrire). Il est également possible que Madeleine Café ne soit pas encore disponible pour votre fac. N'hésitez pas à encourager vos enseignants à nous contacter.");
-    }
+        if (this.state.discipline_options.length == 1) {
+          this.setState({discipline:this.state.discipline_options[0].key})
+        }
+        
+        if (this.state.school_years_options.length == 1) {
+          this.setState({year: this.state.school_years_options[0].key})
+        }
+        this.setState({interests: []});
+      }).catch(error => {
+        this.setState({ errorMessage: error.toString() });
+        alert("Veuillez vérifier que vous avez inscrit votre adresse email universitaire (cela permet d'éviter à des tiers de s'inscrire). Il est également possible que Madeleine Café ne soit pas encore disponible pour votre fac. N'hésitez pas à encourager vos enseignants à nous contacter.");
+        console.error('There was an error!', error);
+      });
+    
     event.preventDefault();
   }
 
@@ -157,9 +136,9 @@ class NameForm extends React.Component {
         <div class="ui form">
           <Form.Field required>
             <label>Addresse e-mail de la faculté</label>
-            <input autoComplete="off" disabled={!this.state.allowedSuffixes || this.state.isValidEmail} type="email" placeholder="E-mail" onChange={this.handleEmailChange} />
+            <input autoComplete="off" disabled={this.state.isValidEmail} type="email" placeholder="E-mail" onChange={this.handleEmailChange} />
           </Form.Field>
-          {(!this.state.isValidEmail && this.state.allowedSuffixes) &&
+          {(!this.state.isValidEmail) &&
             <Form.Button primary onClick={this.handleContinuer}>Continuer</Form.Button>
           }
           {(this.state.discipline_options) &&
