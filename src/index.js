@@ -1,11 +1,5 @@
 import "./semantic-ui/semantic.min.css";
-import NameFormElement from "./participer/sign_up_form.js"
 import * as ReactDOM from 'react-dom';
-
-var domContainer = document.querySelector('#sign_up_email_validation_container');
-if (domContainer != null) {
-    ReactDOM.render(NameFormElement, domContainer);
-}
 
 import HomepageLayout from "./index_page.js"
 domContainer = document.querySelector('#index2_container');
