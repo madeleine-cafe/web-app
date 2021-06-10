@@ -1,8 +1,8 @@
 import "./semantic-ui/semantic.min.css";
 import * as ReactDOM from 'react-dom';
-
 import HomepageLayout from "./index_page.js"
-domContainer = document.querySelector('#index2_container');
+
+var domContainer = document.querySelector('#index2_container');
 if (domContainer != null) {
     ReactDOM.render(HomepageLayout, domContainer);
 }
