@@ -19,12 +19,6 @@ if (domContainer != null) {
     ReactDOM.render(ContactLayout, domContainer);
 }
 
-import GererMonCompteElement from "./compte/gererMonCompte.js"
-domContainer = document.querySelector('#gerer_mon_compte_container');
-if (domContainer != null) {
-    ReactDOM.render(GererMonCompteElement, domContainer);
-}
-
 import ConduiteLayout from "./conduite/conduite.js"
 domContainer = document.querySelector('#conduite_container');
 if (domContainer != null) {

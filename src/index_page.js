@@ -205,7 +205,6 @@ const HomepageLayout = () => (
               <List link inverted>
                 <List.Item as='a' href="/contact">Nous contacter</List.Item>
                 <List.Item as='a' href="/privacy">Politique de confidentialité</List.Item>
-                <List.Item as='a' href="/compte">Gérer mon compte</List.Item>
                 <List.Item as='a' href="/conduite">Code de Conduite</List.Item>
               </List>
             </Grid.Column>

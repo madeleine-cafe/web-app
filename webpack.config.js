@@ -8,10 +8,6 @@ module.exports = {
       template: path.resolve(__dirname, "src", "index.html")
     }),
     new HtmlWebpackPlugin({
-      filename: 'compte/index.html',
-      template: path.resolve(__dirname, "src", "compte/index.html")
-    }),
-    new HtmlWebpackPlugin({
       filename: 'contact/index.html',
       template: path.resolve(__dirname, "src", "contact/index.html")
     }),
